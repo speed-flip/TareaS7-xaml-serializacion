@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TareaS7.ViewModel"
+             x:Class="TareaS7.Views.Prestamos"
+             Title="Prestamos"
+             >
+
+    <ContentPage.BindingContext>
+        <local:VMPrestamos></local:VMPrestamos>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#2B3467" Padding="24" CornerRadius="0"   >
+                <Label Text="PRESTAMOS" HorizontalTextAlignment="Center" TextColor="#BAD7E9" FontSize="36"/>
+            </Frame>
+
+            <Picker Title="Libro" Margin="10" ItemsSource="{Binding listaLibros}" SelectedItem="{Binding LibroSeleccionado}" />
+            <Picker Title="Persona" Margin="15" ItemsSource="{Binding listaPersonas}" SelectedItem="{Binding PersonaSeleccionada}" />
+
+            <Button Text="Prestar Libro" Command="{Binding PrestarLibro}" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

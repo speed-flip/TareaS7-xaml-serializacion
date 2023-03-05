@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TareaS7.Views.Libros"
+             xmlns:local="clr-namespace:TareaS7.ViewModel"
+             Title="Libros"
+             >
+
+    <ContentPage.BindingContext>
+        <local:VMLibros></local:VMLibros>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#2B3467" Padding="24" CornerRadius="0"   >
+                <Label Text="LIBROS" HorizontalTextAlignment="Center" TextColor="#BAD7E9" FontSize="36"/>
+            </Frame>
+
+            <Label Text="Nombre"></Label>
+            <Entry Text="{Binding Nombre}" />
+
+            <Label Text="Autor"></Label>
+            <Entry Text="{Binding Autor}" />
+
+            <Label Text="Fecha de Impresion"/>
+            <DatePicker Date="{Binding FechaImpresion}" />
+
+            <Button Command="{Binding AgregarLibro}" Text="Agregar Libro" />
+
+            <ListView ItemsSource="{Binding ListaLibros}" >
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <Grid Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" ></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding nombre}"  ></Label>
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding autor}"  ></Label>
+                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding fechaImpresion, StringFormat='{0:yyyy-MM-dd}' }}"  ></Label>
+                            </Grid>
+
+
+
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+    
